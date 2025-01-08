@@ -75,7 +75,6 @@ runs:
         \`\`\`
         $(cat predicate.json)
         \`\`\`
-        Log: https://search.sigstore.dev?logIndex=$(jq -r ".verificationMaterial.tlogEntries[0].logIndex" ${{ steps.attest.outputs.bundle-path }})
         OCI image: https://ghcr.io/${{ github.repository }}:${{ github.ref_name }}
         EIF hash: $(sha256sum enclave.eif | cut -d ' ' -f 1)
         EOF
