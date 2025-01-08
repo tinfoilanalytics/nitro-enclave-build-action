@@ -38,6 +38,7 @@ runs:
       shell: bash
       run: |
         jq -r ".Measurements" enclave-info.json > predicate.json
+        ls -lh enclave*
 
     - name: Attest
       uses: actions/attest@v1
