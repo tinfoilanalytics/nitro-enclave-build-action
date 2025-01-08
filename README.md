@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: tinfoilanalytics/nitro-enclaves-build-action@v1
+      - uses: tinfoilanalytics/nitro-enclave-build-action@v1
         with:
           docker-context: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
