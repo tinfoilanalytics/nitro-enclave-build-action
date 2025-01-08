@@ -32,6 +32,7 @@ runs:
         tags: eif-builder:latest
 
     - name: Build EIF image
+      shell: bash
       run: |
         docker run --rm \
           -v /var/run/docker.sock:/var/run/docker.sock \
@@ -42,6 +43,7 @@ runs:
           eif-builder:latest
 
     - name: Extract measurements predicate
+      shell: bash
       run: |
         jq -r ".Measurements" enclave-info.json > predicate.json
 
@@ -63,6 +65,7 @@ runs:
         password: ${{ inputs.github-token }}
 
     - name: Build OCI image
+      shell: bash
       run: |
         oras push \
             --export-manifest tmp/manifest.json \
@@ -72,6 +75,7 @@ runs:
 
     - name: Generate release notes
       id: generate-release-notes
+      shell: bash
       run: |
         RELEASE_NOTES=$(cat << EOF
         Measurements:
