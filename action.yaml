@@ -60,7 +60,7 @@ runs:
       shell: bash
       run: |
         oras push \
-            --export-manifest tmp/manifest.json \
+            --export-manifest manifest.json \
             "ghcr.io/${{ github.repository }}:${{ github.ref_name }}" \
             "enclave.eif" \
             "enclave-info.json"
@@ -75,7 +75,7 @@ runs:
         $(cat predicate.json)
         \`\`\`
         Log: https://search.sigstore.dev?logIndex=$(jq -r ".verificationMaterial.tlogEntries[0].logIndex" ${{ steps.attest.outputs.bundle-path }})
-        OCI image: ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+        OCI image: https://ghcr.io/${{ github.repository }}:${{ github.ref_name }}
         EIF hash: $(sha256sum enclave.eif | cut -d ' ' -f 1)
         EOF
         )
