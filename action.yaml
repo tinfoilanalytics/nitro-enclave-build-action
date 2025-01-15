@@ -71,12 +71,12 @@ runs:
       shell: bash
       run: |
         RELEASE_NOTES=$(cat << EOF
+        OCI image: [\`ghcr.io/${{ github.repository }}:${{ github.ref_name }}`\](https://ghcr.io/${{ github.repository }}:${{ github.ref_name }})
+        EIF hash: $(sha256sum enclave.eif | cut -d ' ' -f 1)
         Measurements:
         \`\`\`
         $(cat predicate.json)
         \`\`\`
-        OCI image: https://ghcr.io/${{ github.repository }}:${{ github.ref_name }}
-        EIF hash: $(sha256sum enclave.eif | cut -d ' ' -f 1)
         EOF
         )
         echo "release-notes<<EOF" >> "$GITHUB_OUTPUT"
