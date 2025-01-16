@@ -45,7 +45,7 @@ runs:
       id: attest
       with:
         subject-path: enclave.eif
-        predicate-type: https://tinfoil.sh/predicate/nitro-enclave-measurements/v1
+        predicate-type: https://tinfoil.sh/predicate/aws-nitro-enclave/v1
         predicate-path: predicate.json
 
     - uses: oras-project/setup-oras@v1
